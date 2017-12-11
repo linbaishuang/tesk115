@@ -39,7 +39,7 @@ describe("Person", () => {
         });
 
         describe("#introduce", () => {
-            it("should overwrite Person introduce, introduce with name, age and class number", () => {
+            it("introduce with name, age and class number", () => {
                 const student = new Student(1, "Tom", 21, klass);
                 const introduce = student.introduce();
                 expect(introduce).to.equal("My name is Tom. I am 21 years old. I am a Student. I am at Class 2.");
@@ -52,7 +52,7 @@ describe("Person", () => {
                 klass.assignLeader(student);
                 const introduce = student.introduce();
 
-                expect(introduce).to.equal("My name is Tom. I am 21 years old. I am a Student. I am Leader of Class 2.");            
+                expect(introduce).to.equal("My name is Tom. I am 21 years old. I am a Student. I am Leader of Class 2.");
             });
         });
     });
@@ -76,12 +76,14 @@ describe("Person", () => {
         describe("#introduce", () => {
             it("should overwrite Person introduce, introduce with name, age and class number, given teacher have class", () => {
                 const teacher = new Teacher(1, "Tom", 21, klasses);
+
                 const introduce = teacher.introduce();
                 expect(introduce).to.equal("My name is Tom. I am 21 years old. I am a Teacher. I teach Class 2, 3.");
             });
 
             it("should overwrite Person introduce, introduce with name, age and class number, given teacher have no class", () => {
                 const teacher = new Teacher(1, "Tom", 21);
+                // console.log(teacher)
                 const introduce = teacher.introduce();
                 expect(introduce).to.equal("My name is Tom. I am 21 years old. I am a Teacher. I teach No Class.");
             });
@@ -110,7 +112,7 @@ describe("Class", () => {
         });
 
         afterEach(() => {
-          sandbox.restore();
+            sandbox.restore();
         });
 
 
@@ -121,7 +123,7 @@ describe("Class", () => {
             klass.assignLeader(student);
 
             expect(klass.leader).to.equal(student);
-         });
+        });
 
         it("should not assign student as Leader, given student is not class member", () => {
             const klass = new Class(2);

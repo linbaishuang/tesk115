@@ -81,13 +81,13 @@ describe("Person", () => {
             it("should return I am teaching some guy, given my class is same with this guy's class", () => {
                 const teacher = new Teacher("Tom", 21, klass);
                 const introduce = teacher.introduceWith(studentJerry);
-                expect(introduce).to.equal("My name is Tom. I am 21 years old. I am a Teacher. I teach Jerry.");
+                expect(introduce).to.equal("My name is Tom. I am 21 years old. I am a Teacher. I teach Tom.");
             });
 
             it("should return I am teaching some guy, given my class is different with this guy's class", () => {
                 const teacher = new Teacher("Tom", 21, new Class(10));
                 const introduce = teacher.introduceWith(studentJerry);
-                expect(introduce).to.equal("My name is Tom. I am 21 years old. I am a Teacher. I don't teach Jerry.");
+                expect(introduce).to.equal("My name is Tom. I am 21 years old. I am a Teacher. I don't teach Tom.");
             });
         });
     });
